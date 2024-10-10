@@ -113,6 +113,12 @@ const options = computed(() => {
       type: "textarea",
       placeholder: "Problem in XYZ",
     },
+    {
+      field: "description",
+      label: "Description",
+      type: "textarea",
+      placeholder: "Problem in XYZ",
+    },
   ];
 });
 
