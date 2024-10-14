@@ -10,7 +10,7 @@ app_license = "AGPLv3"
 add_to_apps_screen = [
     {
         "name": "helpdesk",
-        "logo": "/assets/helpdesk/desk/favicon.svg",
+        "logo": "/assets/helpdesk/desk/apple-icon-180.png",
         "title": "Helpdesk",
         "route": "/helpdesk",
         "has_permission": "helpdesk.api.permission.has_app_permission",
