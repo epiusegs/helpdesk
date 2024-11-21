@@ -43,4 +43,4 @@ bench --site dev.altrixone set-config developer_mode 1
 bench --site dev.altrixone clear-cache
 bench use dev.altrixone
 bench get-app https://github.com/epiusegs/helpdesk --branch dev_altrix_one_develop
-bench --site dev.altrixone install-app crm
+bench --site dev.altrixone install-app helpdesk
