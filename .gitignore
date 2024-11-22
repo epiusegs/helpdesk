@@ -36,3 +36,5 @@ desk/components.d.ts
 sites
 log
 config
+patches.txt
+procfile
