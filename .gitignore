@@ -28,10 +28,11 @@ share/python-wheels/
 *.egg-info/
 .installed.cfg
 *.egg
-env/bin
+env
 helpdesk/docs/current
 helpdesk/public/node_modules
 helpdesk/www/helpdesk/index.html
 desk/components.d.ts
 sites
 log
+config
