@@ -191,9 +191,6 @@ class HDTicket(Document):
         log_ticket_activity(self.name, "created this ticket")
         capture_event("ticket_created")
         publish_event("helpdesk:new-ticket", {"name": self.name})
-        # create communication if we are not hitting the new ticket creation API
-        if not self.via_customer_portal:
-            self.create_communication_via_contact(self.description)
 
     def on_update(self):
         # flake8: noqa
@@ -741,6 +738,10 @@ class HDTicket(Document):
             self.first_responded_on = (
                 self.first_responded_on or frappe.utils.now_datetime()
             )
+
+            if frappe.db.get_single_value("HD Settings", "auto_update_status"):
+                self.status = "Replied"
+
         # Fetch description from communication if not set already. This might not be needed
         # anymore as a communication is created when a ticket is created.
         self.description = self.description or c.content
