@@ -192,6 +192,7 @@ export interface EmailAccount {
   api_key?: string;
   api_secret?: string;
   password?: string;
+  frappe_mail_site?: string;
   enable_outgoing?: boolean;
   enable_incoming?: boolean;
   default_outgoing?: boolean;
@@ -245,3 +246,5 @@ export interface Category {
   };
   children?: (Article | SubCategory)[];
 }
+
+export type FeedbackAction = 0 | 1 | 2; // 0: neutral, 1: like, 2: dislike
