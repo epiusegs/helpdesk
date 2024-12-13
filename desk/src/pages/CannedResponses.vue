@@ -25,7 +25,7 @@
     </LayoutHeader>
     <div class="flex-1 overflow-y-auto p-2">
       <div
-        v-if="!cannedResponses.loading"
+        v-if="cannedResponses.data?.length > 0"
         class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 px-5 pb-3"
       >
         <div
@@ -79,6 +79,11 @@
           </div>
         </div>
       </div>
+      <EmptyState
+        v-else
+        title="No Canned Responses Found"
+        @emptyStateAction="showNewDialog = true"
+      />
     </div>
     <CannedResponseModal
       v-model="showNewDialog"
@@ -115,12 +120,14 @@ import {
   TextEditor,
   Tooltip,
   call,
+  usePageMeta,
 } from "frappe-ui";
 import { CannedResponseModal } from "@/components/canned-response/";
 import { LayoutHeader } from "@/components";
 import { useUserStore } from "@/stores/user";
 import { dateFormat, dateTooltipFormat } from "@/utils";
 import { dayjs } from "@/dayjs";
+import EmptyState from "../components/EmptyState.vue";
 
 const { getUser } = useUserStore();
 
@@ -153,4 +160,10 @@ async function deleteItem(name) {
   });
   cannedResponses.reload();
 }
+
+usePageMeta(() => {
+  return {
+    title: "Canned Responses",
+  };
+});
 </script>
